@@ -47,7 +47,12 @@ export function inicializarHistorial() {
         return { lunes, viernes };
     }
 
-    function formatearISO(date) { return date.toISOString().split('T')[0]; }
+    // Función corregida para evitar desfases de zona horaria con los días lunes
+    function formatearISO(date) { 
+        const offset = date.getTimezoneOffset();
+        const localDate = new Date(date.getTime() - (offset * 60 * 1000));
+        return localDate.toISOString().split('T')[0]; 
+    }
 
     async function consultarDatosModal() {
         const usuario = selectUsuarioConsulta.value;
