@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" class="scroll-smooth">
+<html lang="de" translate="no" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +26,7 @@
             <div>
                 <!-- BOTÓN DE ACCESO DIRECTO A LA APLICACIÓN -->
                 <a href="azubiform/app.html" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded-lg shadow-sm transition">
-                    Ingresar
+                    Anmelden
                 </a>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 Dein Ausbildungsnachweis – digital dokumentiert, wöchentlich nach Hause geliefert.
             </h1>
             <p class="text-lg lg:text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-                Schluss mit Papierkram und Stress am Wochenende. Erfasse deine Aufgaben blitzschnell per Smartphone, wir formatieren alles normgerecht und schicken es dir <strong>wöchentlich</strong> direkt vor die Haustür (je nach Monat 4 bis 5 Formulare).
+                Schluss mit Papierkram und Stress am Wochenende. Erfasse deine Aufgaben blitzschnell per Smartphone, wir formatieren alles normgerecht und schicken es dir direkt nach Hause.
             </p>
             <div id="start" class="flex flex-col sm:flex-row justify-center gap-4">
                 <!-- REDIRECCIÓN AL SISTEMA PARA EMPEZAR -->
@@ -100,8 +100,8 @@
                 </div>
                 <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 relative">
                     <span class="absolute -top-4 left-6 bg-indigo-600 text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center">3</span>
-                    <h3 class="font-bold text-slate-900 text-lg mb-2 mt-2">Wöchentlicher Post-Service</h3>
-                    <p class="text-sm text-slate-600">Wir drucken deine Berichte <strong>wöchentlich</strong> aus – so erhältst du je nach Monat zuverlässig <strong>4 bis 5 fertige Formulare</strong> direkt per Post nach Hause.</p>
+                    <h3 class="font-bold text-slate-900 text-lg mb-2 mt-2">Zuverlässiger Post-Service</h3>
+                    <p class="text-sm text-slate-600">Wir drucken deine Berichte aus und senden sie dir je nach gewähltem Tarif wöchentlich oder gebündelt monatlich direkt nach Hause.</p>
                 </div>
             </div>
         </div>
@@ -125,8 +125,8 @@
                 <div class="flex items-start space-x-4 p-4">
                     <div class="text-emerald-500 font-bold text-xl">✓</div>
                     <div>
-                        <h4 class="font-bold text-slate-900">Wöchentliche Lieferung</h4>
-                        <p class="text-sm text-slate-600">Erhalte 4 bis 5 ausgefüllte Formulare monatlich frisch per Post, exakt aufgeteilt nach Kalenderwochen.</p>
+                        <h4 class="font-bold text-slate-900">Flexible Lieferung</h4>
+                        <p class="text-sm text-slate-600">Wähle zwischen wöchentlicher Zustellung oder einer monatlichen Sammellieferung per Post.</p>
                     </div>
                 </div>
                 <div class="flex items-start space-x-4 p-4">
@@ -149,36 +149,72 @@
 
     <!-- SECCIÓN: PRECIOS Y RECOMENDACIÓN (PREISE & EMPFEHLUNG) -->
     <section id="preise" class="py-20 bg-slate-50 border-t border-slate-200">
-        <div class="max-w-4xl mx-auto px-4 text-center">
+        <div class="max-w-6xl mx-auto px-4 text-center">
             <h2 class="text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-2">Transparente Preise</h2>
-            <h3 class="text-3xl font-bold text-slate-900 mb-6">Fair, einfach und ohne Risiko</h3>
+            <h3 class="text-3xl font-bold text-slate-900 mb-12">Wähle dein passendes Modell</h3>
             
-            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 lg:p-12 max-w-xl mx-auto mb-12 relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-wider">
-                    Wöchentlicher Service
-                </div>
-                <div class="text-slate-500 font-medium mb-2">Monatliches Abo</div>
-                <div class="text-5xl font-extrabold text-slate-900 mb-4">15 € <span class="text-lg font-normal text-slate-500">/ Monat</span></div>
-                <p class="text-slate-600 text-sm mb-8">Inklusive digitaler Erfassung, wöchentlicher Postzustellung (je nach Monat 4 bis 5 Formulare) und normgerechter Aufbereitung.</p>
+            <!-- CONTENEDOR DE DOS PLANES -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
                 
-                <ul class="text-left space-y-3 text-sm text-slate-700 mb-8 border-t border-b border-slate-100 py-6">
-                    <li class="flex items-center space-x-3">
-                        <span class="text-emerald-500 font-bold">✓</span>
-                        <span><strong>1 Woche kostenlos testen</strong> (vollkommen risikofrei)</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <span class="text-emerald-500 font-bold">✓</span>
-                        <span>Regelmäßig im Briefkasten: <strong>4 bis 5 wöchentliche Formulare</strong> pro Monat</span>
-                    </li>
-                    <li class="flex items-center space-x-3">
-                        <span class="text-emerald-500 font-bold">✓</span>
-                        <span>Jederzeit monatlich kündbar</span>
-                    </li>
-                </ul>
+                <!-- PLAN 1: ENVÍO MENSUAL (14,99 €) -->
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 text-left relative flex flex-col justify-between">
+                    <div>
+                        <div class="text-slate-500 font-medium mb-2 text-sm">Monatspaket</div>
+                        <div class="text-4xl font-extrabold text-slate-900 mb-4">14,99 € <span class="text-base font-normal text-slate-500">/ Monat</span></div>
+                        <p class="text-slate-600 text-sm mb-6">Einmal im Monat erhältst du alle 4 bis 5 ausgefüllten Berichts-Formulare gebündelt per Post nach Hause.</p>
+                        
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8 border-t border-b border-slate-100 py-6">
+                            <li class="flex items-center space-x-3">
+                                <span class="text-emerald-500 font-bold">✓</span>
+                                <span><strong>1 Woche kostenlos testen</strong></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-emerald-500 font-bold">✓</span>
+                                <span>Monatliche Sammellieferung per Post</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-emerald-500 font-bold">✓</span>
+                                <span>Jederzeit monatlich kündbar</span>
+                            </li>
+                        </ul>
+                    </div>
 
-                <a href="azubiform/app.html" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3.5 rounded-xl transition shadow-md text-center">
-                    Jetzt 1 Woche gratis testen
-                </a>
+                    <a href="azubiform/app.html" class="block w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3.5 rounded-xl transition shadow-md text-center text-sm">
+                        Monatspaket wählen
+                    </a>
+                </div>
+
+                <!-- PLAN 2: ENVÍO SEMANAL (17,99 €) - DESTACADO -->
+                <div class="bg-white rounded-3xl shadow-2xl border-2 border-indigo-600 p-8 text-left relative flex flex-col justify-between">
+                    <div class="absolute top-0 right-0 bg-indigo-600 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-wider">
+                        Beliebt (Wöchentlich)
+                    </div>
+                    <div>
+                        <div class="text-indigo-600 font-medium mb-2 text-sm">Wöchentlicher Service</div>
+                        <div class="text-4xl font-extrabold text-slate-900 mb-4">17,99 € <span class="text-base font-normal text-slate-500">/ Monat</span></div>
+                        <p class="text-slate-600 text-sm mb-6">Maximale Frische: Wir drucken und versenden deine Berichte jede Woche direkt frisch in deinen Briefkasten.</p>
+                        
+                        <ul class="space-y-3 text-sm text-slate-700 mb-8 border-t border-b border-slate-100 py-6">
+                            <li class="flex items-center space-x-3">
+                                <span class="text-emerald-500 font-bold">✓</span>
+                                <span><strong>1 Woche kostenlos testen</strong></span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-emerald-500 font-bold">✓</span>
+                                <span>Wöchentliche Postzustellung (4-5x pro Monat)</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-emerald-500 font-bold">✓</span>
+                                <span>Jederzeit monatlich kündbar</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="azubiform/app.html" class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3.5 rounded-xl transition shadow-md text-center text-sm">
+                        Wöchentlichen Service wählen
+                    </a>
+                </div>
+
             </div>
 
             <!-- CAJA DE RECOMENDACIÓN -->
@@ -200,7 +236,7 @@
             <h2 class="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-2">Über uns</h2>
             <h3 class="text-3xl font-bold mb-6">Wer wir sind</h3>
             <p class="text-slate-300 text-base lg:text-lg leading-relaxed max-w-3xl mx-auto">
-                "Wir sind ein Team, das sich darauf konzentriert, das Leben von Auszubildenden zu vereinfachen. Wir kennen die alltäglichen Herausforderungen aus erster Hand und wissen, dass das Berichtsheft oft zu einer unnötigen Zeitbelastung wird. Unsere Mission ist es, deine Ausbildungszeit durch Technologie zu optimieren: Du hältst deine Aufgaben sofort per Smartphone fest, und wir kümmern uns darum, dass du wöchentlich deine fertigen Unterlagen (4 bis 5 Formulare im Monat) entspannt im Briefkasten hast."
+                "Wir sind ein Team, das sich darauf konzentriert, das Leben von Auszubildenden zu vereinfachen. Wir kennen die alltäglichen Herausforderungen aus erster Hand und wissen, dass das Berichtsheft oft zu einer unnötigen Zeitbelastung wird. Unsere Mission ist es, deine Ausbildungszeit durch Technologie zu optimieren: Du hältst deine Aufgaben sofort per Smartphone fest, und wir kümmern uns darum, dass du deine fertigen Unterlagen entspannt im Briefkasten hast."
             </p>
         </div>
     </section>
@@ -209,7 +245,7 @@
     <section id="kontakt" class="py-20 bg-indigo-600 text-white">
         <div class="max-w-xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-4">Starte jetzt deine kostenlose Testwoche</h2>
-            <p class="text-indigo-100 mb-8 text-sm">Erhalte deine wöchentlichen Ausbildungsnachweise zuverlässig per Post über Azubiform.de.</p>
+            <p class="text-indigo-100 mb-8 text-sm">Erhalte deine Ausbildungsnachweise zuverlässig per Post über Azubiform.de.</p>
             
             <div class="bg-white p-6 rounded-2xl shadow-xl text-center space-y-4">
                 <p class="text-slate-700 text-sm mb-4">Haz clic abajo para acceder al sistema, registrarte o iniciar sesión en tu cuenta.</p>

@@ -16,13 +16,13 @@ export function inicializarAuth(onLoginExitoso) {
             tabRegistro.className = "w-1/2 pb-2 text-sm font-semibold text-gray-400 border-b-2 border-transparent hover:text-gray-600 focus:outline-none transition";
             formLogin.classList.remove('hidden');
             formRegistro.classList.add('hidden');
-            tituloAuth.textContent = "Iniciar Sesión";
+            tituloAuth.textContent = "Anmelden";
         } else {
             tabRegistro.className = "w-1/2 pb-2 text-sm font-bold text-amber-600 border-b-2 border-amber-600 focus:outline-none transition";
             tabLogin.className = "w-1/2 pb-2 text-sm font-semibold text-gray-400 border-b-2 border-transparent hover:text-gray-600 focus:outline-none transition";
             formRegistro.classList.remove('hidden');
             formLogin.classList.add('hidden');
-            tituloAuth.textContent = "Registro de Nuevo Usuario";
+            tituloAuth.textContent = "Neuen Benutzer registrieren";
         }
     };
 
@@ -48,10 +48,10 @@ export function inicializarAuth(onLoginExitoso) {
             const response = await fetch(`${SUPABASE_URL}/rest/v1/usuarios?email=eq.${encodeURIComponent(email)}`, {
                 method: 'GET', headers: headers
             });
-            if (!response.ok) throw new Error('Error al conectar con la base de datos');
+            if (!response.ok) throw new Error('Fehler beim Verbinden mit der Datenbank');
             const usuarios = await response.json();
             if (usuarios.length === 0) {
-                mostrarMensaje('❌ El correo no está registrado.');
+                mostrarMensaje('❌ Diese E-Mail-Adresse ist nicht registriert.');
                 return;
             }
             const usuarioExistente = usuarios[0];
@@ -59,10 +59,10 @@ export function inicializarAuth(onLoginExitoso) {
                 localStorage.setItem('usuario_actual', usuarioExistente.nombre);
                 onLoginExitoso(usuarioExistente.nombre);
             } else {
-                mostrarMensaje('❌ Contraseña incorrecta.');
+                mostrarMensaje('❌ Falsches Passwort.');
             }
         } catch (error) {
-            mostrarMensaje('❌ Error de red: ' + error.message);
+            mostrarMensaje('❌ Netzwerkfehler: ' + error.message);
         }
     });
 
@@ -75,7 +75,7 @@ export function inicializarAuth(onLoginExitoso) {
         loginMensaje.classList.add('hidden');
 
         if (codigoIngresado !== CODIGO_MAESTRO) {
-            mostrarMensaje('❌ Código de seguridad incorrecto.');
+            mostrarMensaje('❌ Ungültiger Sicherheitscode.');
             return;
         }
 
@@ -85,7 +85,7 @@ export function inicializarAuth(onLoginExitoso) {
             });
             const existingUsers = await checkRes.json();
             if (existingUsers.length > 0) {
-                mostrarMensaje('❌ Este correo ya está registrado.');
+                mostrarMensaje('❌ Diese E-Mail-Adresse ist bereits registriert.');
                 return;
             }
 
@@ -97,7 +97,7 @@ export function inicializarAuth(onLoginExitoso) {
             localStorage.setItem('usuario_actual', nombre);
             onLoginExitoso(nombre);
         } catch (error) {
-            mostrarMensaje('❌ Error de red: ' + error.message);
+            mostrarMensaje('❌ Netzwerkfehler: ' + error.message);
         }
     });
 

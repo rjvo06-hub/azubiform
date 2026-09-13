@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Diario - Proyecto Santiago y Ramiro</title>
+    <title>Tagesprotokoll - Projekt Santiago und Ramiro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @media print {
@@ -40,53 +40,52 @@
 
     <!-- SECCIÓN 1: LOGIN -->
     <div id="loginSection" class="w-full max-w-md bg-white p-6 rounded-xl shadow-lg">
-        <h2 class="text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-1">Proyecto Santiago y Ramiro</h2>
-        <h1 class="text-xl font-bold text-gray-800 mb-4" id="tituloAuth">Iniciar Sesión</h1>
+        <h1 class="text-xl font-bold text-gray-800 mb-4" id="tituloAuth">Anmelden</h1>
 
         <div class="flex border-b border-gray-200 mb-4">
-            <button type="button" id="tabLogin" onclick="cambiarTab('login')" class="w-1/2 pb-2 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 focus:outline-none transition">Ya tengo cuenta</button>
-            <button type="button" id="tabRegistro" onclick="cambiarTab('registro')" class="w-1/2 pb-2 text-sm font-semibold text-gray-400 border-b-2 border-transparent hover:text-gray-600 focus:outline-none transition">Registrarse</button>
+            <button type="button" id="tabLogin" onclick="cambiarTab('login')" class="w-1/2 pb-2 text-sm font-bold text-indigo-600 border-b-2 border-indigo-600 focus:outline-none transition">Ich habe bereits ein Konto</button>
+            <button type="button" id="tabRegistro" onclick="cambiarTab('registro')" class="w-1/2 pb-2 text-sm font-semibold text-gray-400 border-b-2 border-transparent hover:text-gray-600 focus:outline-none transition">Registrieren</button>
         </div>
         
         <form id="formLogin" class="space-y-4">
             <div>
-                <label for="loginEmail" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Correo Electrónico</label>
-                <input type="email" id="loginEmail" required placeholder="correo@ejemplo.com" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                <label for="loginEmail" class="block text-xs font-semibold text-gray-700 uppercase mb-1">E-Mail-Adresse</label>
+                <input type="email" id="loginEmail" required placeholder="email@beispiel.de" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
             </div>
             <div>
-                <label for="loginPassword" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Contraseña</label>
+                <label for="loginPassword" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Passwort</label>
                 <div class="relative">
                     <input type="password" id="loginPassword" required placeholder="••••••••" class="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
                     <button type="button" onclick="togglePassword('loginPassword', 'iconLoginPass')" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 hover:text-gray-700 focus:outline-none"><span id="iconLoginPass">👁️</span></button>
                 </div>
             </div>
-            <button type="submit" class="w-full bg-indigo-600 text-white font-medium py-2 rounded-lg hover:bg-indigo-700 transition">Entrar al Sistema</button>
+            <button type="submit" class="w-full bg-indigo-600 text-white font-medium py-2 rounded-lg hover:bg-indigo-700 transition">Anmelden</button>
         </form>
 
         <form id="formRegistro" class="space-y-4 hidden">
             <div>
-                <label for="regNombre" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Nombre de Usuario</label>
-                <input type="text" id="regNombre" required placeholder="Tu nombre" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                <label for="regNombre" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Benutzername</label>
+                <input type="text" id="regNombre" required placeholder="Dein Name" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
             </div>
             <div>
-                <label for="regEmail" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Correo Electrónico</label>
-                <input type="email" id="regEmail" required placeholder="correo@ejemplo.com" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                <label for="regEmail" class="block text-xs font-semibold text-gray-700 uppercase mb-1">E-Mail-Adresse</label>
+                <input type="email" id="regEmail" required placeholder="email@beispiel.de" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
             </div>
             <div>
-                <label for="regPassword" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Contraseña</label>
+                <label for="regPassword" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Passwort</label>
                 <div class="relative">
                     <input type="password" id="regPassword" required placeholder="••••••••" class="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
                     <button type="button" onclick="togglePassword('regPassword', 'iconRegPass')" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 hover:text-gray-700 focus:outline-none"><span id="iconRegPass">👁️</span></button>
                 </div>
             </div>
             <div>
-                <label for="regCodigo" class="block text-xs font-semibold text-amber-600 uppercase mb-1">Código de Seguridad (Administrador)</label>
+                <label for="regCodigo" class="block text-xs font-semibold text-amber-600 uppercase mb-1">Sicherheitscode (Administrator)</label>
                 <div class="relative">
-                    <input type="password" id="regCodigo" required placeholder="Código provisto por el admin" class="w-full px-3 py-2 pr-10 border border-amber-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none bg-amber-50">
+                    <input type="password" id="regCodigo" required placeholder="Vom Administrator bereitgestellter Code" class="w-full px-3 py-2 pr-10 border border-amber-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none bg-amber-50">
                     <button type="button" onclick="togglePassword('regCodigo', 'iconRegCodigo')" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 hover:text-gray-700 focus:outline-none"><span id="iconRegCodigo">👁️</span></button>
                 </div>
             </div>
-            <button type="submit" class="w-full bg-amber-600 text-white font-medium py-2 rounded-lg hover:bg-amber-700 transition">Completar Registro</button>
+            <button type="submit" class="w-full bg-amber-600 text-white font-medium py-2 rounded-lg hover:bg-amber-700 transition">Registrierung abschließen</button>
         </form>
         <div id="loginMensaje" class="text-xs text-center hidden py-2 mt-3 rounded-lg font-medium"></div>
     </div>
@@ -94,43 +93,41 @@
     <!-- SECCIÓN 2: APP PRINCIPAL -->
     <div id="appSection" class="w-full max-w-md hidden flex flex-col items-center">
         <div class="w-full bg-white p-3 rounded-xl shadow-sm mb-4 flex justify-between items-center text-xs text-gray-600">
-            <span>Usuario: <strong id="lblUsuario" class="text-indigo-600"></strong></span>
+            <span>Benutzer: <strong id="lblUsuario" class="text-indigo-600"></strong></span>
             <div class="space-x-1.5 flex items-center">
-                <button onclick="abrirModalConsulta()" class="text-indigo-600 font-semibold hover:underline">📊 Consultar</button>
+                <button onclick="abrirModalConsulta()" class="text-indigo-600 font-semibold hover:underline">📊 Abfragen</button>
                 <span class="text-gray-300">|</span>
-                <button onclick="abrirModalImpresionAusbildung()" class="text-emerald-600 font-semibold hover:underline">🖨️ Imprimir</button>
+                <button onclick="abrirModalImpresionAusbildung()" class="text-emerald-600 font-semibold hover:underline">🖨️ Drucken</button>
                 <span class="text-gray-300">|</span>
-                <button onclick="localStorage.removeItem('usuario_actual'); location.reload();" class="text-red-500 hover:underline">Salir</button>
+                <button onclick="cerrarSesion()" class="text-red-500 hover:underline">Abmelden</button>
             </div>
         </div>
 
         <div class="w-full bg-white p-6 rounded-xl shadow-lg mb-6 relative">
             <div class="flex justify-between items-center mb-2">
-                <h2 class="text-xs font-semibold text-indigo-600 uppercase tracking-wider">Proyecto Santiago y Ramiro</h2>
-                <button type="button" onclick="abrirModalPasado()" class="text-xs bg-amber-100 text-amber-700 font-semibold px-2.5 py-1 rounded-lg hover:bg-amber-200 transition">📅 Registrar Día Anterior</button>
+                <h2 class="block text-xs font-semibold text-gray-700 uppercase mb-1">Aktivitätsprotokoll</h2>
+                <button type="button" onclick="abrirModalPasado()" class="text-xs bg-amber-100 text-amber-700 font-semibold px-2.5 py-1 rounded-lg hover:bg-amber-200 transition">📅 Tag nachtragen</button>
             </div>
-            <h1 class="text-xl font-bold text-gray-800 mb-2">Registro de Actividades</h1>
-            
-            <div id="fechaActual" class="text-sm font-medium text-gray-600 bg-gray-50 p-2 rounded-lg text-center mb-4 border border-gray-200">Cargando fecha...</div>
+            <div id="fechaActual" class="text-sm font-medium text-gray-600 bg-gray-50 p-2 rounded-lg text-center mb-4 border border-gray-200">Datum wird geladen...</div>
 
             <form id="registroForm" class="space-y-4 relative">
                 <div class="relative">
-                    <label for="actividad" class="block text-xs font-semibold text-gray-700 uppercase mb-1">¿Qué actividad hiciste?</label>
-                    <input type="text" id="actividad" autocomplete="off" required placeholder="Escribe para buscar..." class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                    <label for="actividad" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Welche Aktivität hast du gemacht?</label>
+                    <input type="text" id="actividad" autocomplete="off" required placeholder="Tippen zum Suchen..." class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
                     <div id="sugerencias" class="absolute left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-1 max-h-48 overflow-y-auto hidden z-50"></div>
                 </div>
-                <button type="submit" id="btnSubmitActividad" class="w-full bg-indigo-600 text-white font-medium py-2 rounded-lg hover:bg-indigo-700 transition">Añadir al Listado</button>
+                <button type="submit" id="btnSubmitActividad" class="w-full bg-indigo-600 text-white font-medium py-2 rounded-lg hover:bg-indigo-700 transition">Zur Liste hinzufügen</button>
             </form>
             <div id="mensaje" class="text-xs text-center hidden py-2 mt-3 rounded-lg font-medium"></div>
         </div>
 
         <div class="w-full bg-white p-6 rounded-xl shadow-lg">
             <div class="flex justify-between items-center mb-3">
-                <h3 class="font-bold text-gray-800 text-sm">Mis actividades de hoy</h3>
-                <span id="contador" class="text-xs bg-indigo-100 text-indigo-700 font-semibold px-2 py-1 rounded-full">0 registradas</span>
+                <h3 class="font-bold text-gray-800 text-sm">Meine heutigen Aktivitäten</h3>
+                <span id="contador" class="text-xs bg-indigo-100 text-indigo-700 font-semibold px-2 py-1 rounded-full">0 erfasst</span>
             </div>
             <div id="listaActividades" class="space-y-2 max-h-64 overflow-y-auto pr-1">
-                <p class="text-xs text-gray-400 text-center py-4">Aún no hay actividades registradas hoy.</p>
+                <p class="text-xs text-gray-400 text-center py-4">Heute wurden noch keine Aktivitäten erfasst.</p>
             </div>
         </div>
     </div>
@@ -140,16 +137,16 @@
         <div class="w-full max-w-4xl bg-white rounded-xl shadow-2xl relative flex flex-col max-h-[95vh]">
             <div class="p-4 bg-gray-900 text-white rounded-t-xl flex flex-wrap justify-between items-center gap-3 no-print">
                 <div class="flex items-center space-x-3">
-                    <h2 class="font-bold text-sm">Generador de Impresión A4</h2>
-                    <select id="selectUsuarioImpresion" class="px-2 py-1 bg-gray-800 text-white border border-gray-700 rounded text-xs focus:outline-none"><option value="">Cargando usuarios...</option></select>
+                    <h2 class="font-bold text-sm">A4-Druckgenerator</h2>
+                    <select id="selectUsuarioImpresion" lang="de" class="px-2 py-1 bg-gray-800 text-white border border-gray-700 rounded text-xs focus:outline-none"><option value="">Benutzer werden geladen...</option></select>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <button onclick="cambiarSemanaImpresion(-1)" class="bg-gray-800 hover:bg-gray-700 text-xs px-2.5 py-1.5 rounded">◀ Semana Anterior</button>
-                    <span id="lblSemanaImpresion" class="text-xs font-semibold text-emerald-400">Calculando...</span>
-                    <button onclick="cambiarSemanaImpresion(1)" class="bg-gray-800 hover:bg-gray-700 text-xs px-2.5 py-1.5 rounded">Semana Siguiente ▶</button>
+                    <button onclick="cambiarSemanaImpresion(-1)" class="bg-gray-800 hover:bg-gray-700 text-xs px-2.5 py-1.5 rounded">◀ Vorherige Woche</button>
+                    <span id="lblSemanaImpresion" class="text-xs font-semibold text-emerald-400">Wird berechnet...</span>
+                    <button onclick="cambiarSemanaImpresion(1)" class="bg-gray-800 hover:bg-gray-700 text-xs px-2.5 py-1.5 rounded">Nächste Woche ▶</button>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <button onclick="window.print()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-1.5 rounded shadow">🖨️ Imprimir Hoja</button>
+                    <button onclick="window.print()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-4 py-1.5 rounded shadow">🖨️ Blatt drucken</button>
                     <button onclick="cerrarModalImpresionAusbildung()" class="text-gray-400 hover:text-white font-bold text-lg px-2">✕</button>
                 </div>
             </div>
@@ -173,28 +170,28 @@
     <div id="modalPasado" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 p-4">
         <div class="w-full max-w-lg bg-white p-6 rounded-xl shadow-xl relative max-h-[90vh] flex flex-col">
             <button type="button" onclick="cerrarModalPasado()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-lg font-bold">✕</button>
-            <h2 class="text-xs font-semibold text-amber-600 uppercase tracking-wider mb-1">Registro Retrasado</h2>
-            <h1 class="text-xl font-bold text-gray-800 mb-4">Añadir Actividad Pasada</h1>
+            <h2 class="text-xs font-semibold text-amber-600 uppercase tracking-wider mb-1">Nachträglicher Eintrag</h2>
+            <h1 class="text-xl font-bold text-gray-800 mb-4">Vergangene Aktivität hinzufügen</h1>
             <form id="formPasado" class="space-y-3 mb-4">
                 <div>
-                    <label for="fechaPasada" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Selecciona la Fecha</label>
-                    <input type="date" id="fechaPasada" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    <label for="fechaPasada" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Datum auswählen</label>
+                    <input type="date" id="fechaPasada" lang="de" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none">
                 </div>
                 <div class="relative">
-                    <label for="actividadPasada" class="block text-xs font-semibold text-gray-700 uppercase mb-1">¿Qué actividad hiciste?</label>
-                    <input type="text" id="actividadPasada" autocomplete="off" required placeholder="Escribe para buscar..." class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    <label for="actividadPasada" class="block text-xs font-semibold text-gray-700 uppercase mb-1">Welche Aktivität hast du gemacht?</label>
+                    <input type="text" id="actividadPasada" autocomplete="off" required placeholder="Tippen zum Suchen..." class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none">
                     <div id="sugerenciasPasadas" class="absolute left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-1 max-h-48 overflow-y-auto hidden z-50"></div>
                 </div>
-                <button type="submit" id="btnSubmitPasado" class="w-full bg-amber-600 text-white font-medium py-2 rounded-lg hover:bg-amber-700 transition">Añadir Actividad Pasada</button>
+                <button type="submit" id="btnSubmitPasado" class="w-full bg-amber-600 text-white font-medium py-2 rounded-lg hover:bg-amber-700 transition">Vergangene Aktivität hinzufügen</button>
             </form>
             <div id="mensajePasado" class="text-xs text-center hidden py-1.5 mb-3 rounded-lg font-medium"></div>
             <div class="border-t border-gray-100 pt-3 flex-1 overflow-y-auto">
                 <div class="flex justify-between items-center mb-2">
-                    <h3 class="font-bold text-gray-800 text-xs">Actividades en esta fecha</h3>
-                    <span id="contadorPasado" class="text-[10px] bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">0 registradas</span>
+                    <h3 class="font-bold text-gray-800 text-xs">Aktivitäten an diesem Datum</h3>
+                    <span id="contadorPasado" class="text-[10px] bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">0 erfasst</span>
                 </div>
                 <div id="listaActividadesPasadas" class="space-y-2 max-h-40 overflow-y-auto pr-1">
-                    <p class="text-xs text-gray-400 text-center py-2">Selecciona una fecha para ver registros.</p>
+                    <p class="text-xs text-gray-400 text-center py-2">Wähle ein Datum aus, um Einträge anzuzeigen.</p>
                 </div>
             </div>
         </div>
@@ -204,28 +201,28 @@
     <div id="modalConsulta" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 p-4">
         <div class="w-full max-w-lg bg-white p-6 rounded-xl shadow-xl relative max-h-[90vh] flex flex-col">
             <button type="button" onclick="cerrarModalConsulta()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-lg font-bold">✕</button>
-            <h2 class="text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-1">Panel de Control</h2>
-            <h1 class="text-xl font-bold text-gray-800 mb-4">Consulta de Actividades</h1>
+            <h2 class="text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-1">Steuerungs-Panel</h2>
+            <h1 class="text-xl font-bold text-gray-800 mb-4">Aktivitätsabfrage</h1>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4 bg-gray-50 p-3 rounded-lg border border-gray-200">
                 <div>
-                    <label for="selectUsuarioConsulta" class="block text-[10px] font-semibold text-gray-700 uppercase mb-1">Usuario</label>
-                    <select id="selectUsuarioConsulta" class="w-full px-2 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white text-xs"><option value="">Cargando...</option></select>
+                    <label for="selectUsuarioConsulta" class="block text-[10px] font-semibold text-gray-700 uppercase mb-1">Benutzer</label>
+                    <select id="selectUsuarioConsulta" lang="de" class="w-full px-2 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white text-xs"><option value="">Wird geladen...</option></select>
                 </div>
                 <div>
-                    <label for="selectVistaConsulta" class="block text-[10px] font-semibold text-gray-700 uppercase mb-1">Tipo de Vista</label>
-                    <select id="selectVistaConsulta" class="w-full px-2 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white text-xs">
-                        <option value="semanal" selected>Semanal (Por defecto)</option>
-                        <option value="mensual">Mensual</option>
+                    <label for="selectVistaConsulta" class="block text-[10px] font-semibold text-gray-700 uppercase mb-1">Ansichtstyp</label>
+                    <select id="selectVistaConsulta" lang="de" class="w-full px-2 py-1.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none bg-white text-xs">
+                        <option value="semanal" selected>Wöchentlich (Standard)</option>
+                        <option value="mensual">Monatlich</option>
                     </select>
                 </div>
             </div>
             <div class="flex justify-between items-center mb-4 bg-indigo-50 px-3 py-2 rounded-lg border border-indigo-100">
-                <button id="btnAnteriorConsulta" class="bg-white text-indigo-600 font-semibold px-2.5 py-1 rounded-md border border-indigo-200 hover:bg-indigo-600 hover:text-white transition text-xs">← Anterior</button>
-                <span id="lblRangoPeriodoConsulta" class="text-xs font-bold text-indigo-900 text-center">Cargando periodo...</span>
-                <button id="btnSiguienteConsulta" class="bg-white text-indigo-600 font-semibold px-2.5 py-1 rounded-md border border-indigo-200 hover:bg-indigo-600 hover:text-white transition text-xs">Siguiente →</button>
+                <button id="btnAnteriorConsulta" class="bg-white text-indigo-600 font-semibold px-2.5 py-1 rounded-md border border-indigo-200 hover:bg-indigo-600 hover:text-white transition text-xs">← Zurück</button>
+                <span id="lblRangoPeriodoConsulta" class="text-xs font-bold text-indigo-900 text-center">Zeitraum wird geladen...</span>
+                <button id="btnSiguienteConsulta" class="bg-white text-indigo-600 font-semibold px-2.5 py-1 rounded-md border border-indigo-200 hover:bg-indigo-600 hover:text-white transition text-xs">Weiter →</button>
             </div>
             <div id="contenedorResultadosConsulta" class="space-y-3 flex-1 overflow-y-auto pr-1">
-                <p class="text-xs text-gray-400 text-center py-8">Selecciona un usuario para ver sus registros.</p>
+                <p class="text-xs text-gray-400 text-center py-8">Wähle einen Benutzer aus, um dessen Einträge anzuzeigen.</p>
             </div>
         </div>
     </div>
@@ -236,6 +233,12 @@
         import { iniciarAppPrincipal } from './js/app.js';
         import { inicializarHistorial } from './js/history.js';
         import { inicializarImpresion } from './js/print.js';
+
+        // Función global para cerrar sesión y regresar a la web principal (ej. index.html)
+        window.cerrarSesion = function() {
+            localStorage.removeItem('usuario_actual');
+            window.location.href = '../index.html'; 
+        };
 
         const usuarioGuardado = localStorage.getItem('usuario_actual');
         

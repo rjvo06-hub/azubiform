@@ -11,7 +11,7 @@ export function iniciarAppPrincipal(nombreUsuario) {
     lblUsuario.textContent = nombreUsuario;
 
     const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const fechaHoyStr = new Date().toLocaleDateString('es-ES', opcionesFecha);
+    const fechaHoyStr = new Date().toLocaleDateString('de-DE', opcionesFecha);
     document.getElementById('fechaActual').textContent = fechaHoyStr.charAt(0).toUpperCase() + fechaHoyStr.slice(1);
     const hoyISO = new Date().toISOString().split('T')[0];
 
@@ -62,11 +62,11 @@ export function iniciarAppPrincipal(nombreUsuario) {
             });
             const data = await res.json();
             if (!data || data.length === 0) {
-                listaActividadesPasadas.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">No hay actividades registradas en esta fecha.</p>';
-                contadorPasado.textContent = '0 registradas';
+                listaActividadesPasadas.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">Keine Aktivitäten für dieses Datum erfasst.</p>';
+                contadorPasado.textContent = '0 erfasst';
                 return;
             }
-            contadorPasado.textContent = `${data.length} registradas`;
+            contadorPasado.textContent = `${data.length} erfasst`;
             listaActividadesPasadas.innerHTML = '';
             data.forEach((item) => {
                 const div = document.createElement('div');
@@ -120,11 +120,11 @@ export function iniciarAppPrincipal(nombreUsuario) {
             const res = await fetch(`${SUPABASE_URL}/rest/v1/registro_diario?fecha=eq.${hoyISO}&usuario=eq.${encodeURIComponent(nombreUsuario)}&order=created_at.desc`, { headers });
             const data = await res.json();
             if (!data || data.length === 0) {
-                listaActividades.innerHTML = '<p class="text-xs text-gray-400 text-center py-4">Aún no hay actividades registradas hoy.</p>';
-                contador.textContent = '0 registradas';
+                listaActividades.innerHTML = '<p class="text-xs text-gray-400 text-center py-4">Heute wurden noch keine Aktivitäten erfasst.</p>';
+                contador.textContent = '0 erfasst';
                 return;
             }
-            contador.textContent = `${data.length} registradas`;
+            contador.textContent = `${data.length} erfasst`;
             listaActividades.innerHTML = '';
             data.forEach((item) => {
                 const div = document.createElement('div');
@@ -140,7 +140,7 @@ export function iniciarAppPrincipal(nombreUsuario) {
         const nombreActividad = inputActividad.value.trim();
         if (!nombreActividad) return;
         btnSubmitActividad.disabled = true;
-        btnSubmitActividad.textContent = 'Guardando...';
+        btnSubmitActividad.textContent = 'Wird gespeichert...';
         const horaActual = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
         try {
@@ -153,8 +153,8 @@ export function iniciarAppPrincipal(nombreUsuario) {
                 body: JSON.stringify({ nombre_actividad: nombreActividad })
             });
             btnSubmitActividad.disabled = false;
-            btnSubmitActividad.textContent = 'Añadir al Listado';
-            mensaje.textContent = '¡Actividad añadida!';
+            btnSubmitActividad.textContent = 'Zur Liste hinzufügen';
+            mensaje.textContent = '✓ Aktivität hinzugefügt!';
             mensaje.className = 'text-xs text-center py-2 mt-3 rounded-lg font-medium bg-green-100 text-green-700';
             mensaje.classList.remove('hidden');
             inputActividad.value = '';
@@ -164,8 +164,8 @@ export function iniciarAppPrincipal(nombreUsuario) {
             cargarActividadesHoy();
         } catch (err) {
             btnSubmitActividad.disabled = false;
-            btnSubmitActividad.textContent = 'Añadir al Listado';
-            mensaje.textContent = '❌ Error al guardar.';
+            btnSubmitActividad.textContent = 'Zur Liste hinzufügen';
+            mensaje.textContent = '❌ Fehler beim Speichern.';
             mensaje.className = 'text-xs text-center py-2 mt-3 rounded-lg font-medium bg-red-100 text-red-700';
             mensaje.classList.remove('hidden');
         }
@@ -177,7 +177,7 @@ export function iniciarAppPrincipal(nombreUsuario) {
         const nombreActividad = inputActividadPasada.value.trim();
         if (!fechaElegida || !nombreActividad) return;
         btnSubmitPasado.disabled = true;
-        btnSubmitPasado.textContent = 'Guardando...';
+        btnSubmitPasado.textContent = 'Wird gespeichert...';
 
         try {
             await fetch(`${SUPABASE_URL}/rest/v1/registro_diario`, {
@@ -189,8 +189,8 @@ export function iniciarAppPrincipal(nombreUsuario) {
                 body: JSON.stringify({ nombre_actividad: nombreActividad })
             });
             btnSubmitPasado.disabled = false;
-            btnSubmitPasado.textContent = 'Añadir Actividad Pasada';
-            mensajePasado.textContent = `¡Guardado para el ${fechaElegida}!`;
+            btnSubmitPasado.textContent = 'Vergangene Aktivität hinzufügen';
+            mensajePasado.textContent = `✓ Für den ${fechaElegida} gespeichert!`;
             mensajePasado.className = 'text-xs text-center py-1.5 mb-3 rounded-lg font-medium bg-green-100 text-green-700';
             mensajePasado.classList.remove('hidden');
             inputActividadPasada.value = '';
@@ -200,8 +200,8 @@ export function iniciarAppPrincipal(nombreUsuario) {
             cargarActividadesPasadas(fechaElegida);
         } catch (err) {
             btnSubmitPasado.disabled = false;
-            btnSubmitPasado.textContent = 'Añadir Actividad Pasada';
-            mensajePasado.textContent = '❌ Error al guardar.';
+            btnSubmitPasado.textContent = 'Vergangene Aktivität hinzufügen';
+            mensajePasado.textContent = '❌ Fehler beim Speichern.';
             mensajePasado.className = 'text-xs text-center py-1.5 mb-3 rounded-lg font-medium bg-red-100 text-red-700';
             mensajePasado.classList.remove('hidden');
         }
