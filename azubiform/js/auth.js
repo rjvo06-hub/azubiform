@@ -1,5 +1,15 @@
 import { SUPABASE_URL, headers, CODIGO_MAESTRO } from './config.js';
 
+// NUEVO: Variable global para almacenar el evento de instalación de la PWA
+window.deferredPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Evita que el navegador muestre automáticamente su barra/banner nativo
+    e.preventDefault();
+    // Guarda el evento para invocarlo cuando el usuario inicie sesión
+    window.deferredPrompt = e;
+});
+
 export function inicializarAuth(onLoginExitoso) {
     const loginSection = document.getElementById('loginSection');
     const loginMensaje = document.getElementById('loginMensaje');
