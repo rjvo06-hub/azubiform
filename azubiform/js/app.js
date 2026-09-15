@@ -10,9 +10,6 @@ export function iniciarAppPrincipal(nombreUsuario) {
     document.body.classList.remove('justify-center');
     lblUsuario.textContent = nombreUsuario;
 
-    // NUEVO: Comprobar si se puede mostrar la opción de instalar en la pantalla de inicio tras iniciar sesión
-    verificarInstalacionPWA();
-
     const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const fechaHoyStr = new Date().toLocaleDateString('de-DE', opcionesFecha);
     document.getElementById('fechaActual').textContent = fechaHoyStr.charAt(0).toUpperCase() + fechaHoyStr.slice(1);
@@ -211,47 +208,4 @@ export function iniciarAppPrincipal(nombreUsuario) {
     };
 
     cargarActividadesHoy();
-}
-
-// Funciones auxiliares para la PWA
-function verificarInstalacionPWA() {
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
-    
-    if (window.deferredPrompt && !isStandalone) {
-        mostrarModalInstalacionPWA();
-    }
-}
-
-function mostrarModalInstalacionPWA() {
-    const divAviso = document.createElement('div');
-    divAviso.id = 'pwaInstallBanner';
-    divAviso.className = 'fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4';
-    divAviso.innerHTML = `
-        <div class="bg-white rounded-xl shadow-2xl max-w-sm w-full p-6 text-center">
-            <div class="text-3xl mb-2">📱</div>
-            <h3 class="font-bold text-gray-800 text-base mb-2">App zum Startbildschirm hinzufügen</h3>
-            <p class="text-xs text-gray-600 mb-4">Füge Azubiform zu deinem Telefon-Desktop hinzu, um schneller und wie eine echte App darauf zuzugreifen.</p>
-            <div class="flex space-x-2">
-                <button id="btnAceptPWA" class="flex-1 bg-indigo-600 text-white font-medium py-2 rounded-lg text-xs hover:bg-indigo-700 transition">Installieren</button>
-                <button id="btnCancelPWA" class="flex-1 bg-gray-200 text-gray-700 font-medium py-2 rounded-lg text-xs hover:bg-gray-300 transition">Später</button>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(divAviso);
-
-    document.getElementById('btnAceptPWA').addEventListener('click', async () => {
-        divAviso.remove();
-        if (window.deferredPrompt) {
-            window.deferredPrompt.prompt();
-            const { outcome } = await window.deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                console.log('El usuario aceptó instalar la PWA');
-            }
-            window.deferredPrompt = null;
-        }
-    });
-
-    document.getElementById('btnCancelPWA').addEventListener('click', () => {
-        divAviso.remove();
-    });
 }
