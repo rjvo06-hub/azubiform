@@ -240,43 +240,15 @@
         import { inicializarHistorial } from './js/history.js';
         import { inicializarImpresion } from './js/print.js';
 
-        function verificarPermisosAdmin() {
-            const acceso = localStorage.getItem('usuario_acceso');
-            if (Number(acceso) === 1) {
-                document.getElementById('btnMenuImpresion').classList.remove('hidden');
-                document.getElementById('sepMenuImpresion').classList.remove('hidden');
-            } else {
-                document.getElementById('btnMenuImpresion').classList.add('hidden');
-                document.getElementById('sepMenuImpresion').classList.add('hidden');
-            }
-        }
-
+        // Función global para cerrar sesión y regresar a la web principal (ej. index.html)
         window.cerrarSesion = function() {
             localStorage.removeItem('usuario_actual');
-            localStorage.removeItem('usuario_acceso');
-            
-            // Limpieza completa de los campos del formulario de login
-            document.getElementById('loginEmail').value = '';
-            document.getElementById('loginPassword').value = '';
-            document.getElementById('formLogin').reset();
-            document.getElementById('loginMensaje').classList.add('hidden');
-
-            document.getElementById('appSection').classList.add('hidden');
-            document.getElementById('loginSection').classList.remove('hidden');
-            document.body.classList.add('justify-center');
-            
-            inicializarAuth((nombre) => {
-                verificarPermisosAdmin();
-                iniciarAppPrincipal(nombre);
-                inicializarHistorial();
-                inicializarImpresion();
-            });
+            window.location.href = '../index.html'; 
         };
 
         const usuarioGuardado = localStorage.getItem('usuario_actual');
         
         if (usuarioGuardado) {
-            verificarPermisosAdmin();
             iniciarAppPrincipal(usuarioGuardado);
             inicializarHistorial();
             inicializarImpresion();
@@ -284,7 +256,6 @@
             document.getElementById('loginSection').classList.remove('hidden');
             document.body.classList.remove('justify-center');
             inicializarAuth((nombre) => {
-                verificarPermisosAdmin();
                 iniciarAppPrincipal(nombre);
                 inicializarHistorial();
                 inicializarImpresion();
