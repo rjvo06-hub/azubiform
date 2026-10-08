@@ -99,8 +99,8 @@ export function inicializarLectorYAnalizadorPdf(contenedorId) {
                         coordenadasDetectadas.martes_horas = { x1: x + 360, y1: y - 5, x2: x + 420, y2: y + 35 };
                     }
                     if (texto === 'Mittwoch') {
-                        coordenadasDetectadas.miércoles_texto = { x1: x + 70, y1: y - 5, x2: x + 350, y2: y + 35 };
-                        coordenadasDetectadas.miércoles_horas = { x1: x + 360, y1: y - 5, x2: x + 420, y2: y + 35 };
+                        coordenadasDetectadas.miercoles_texto = { x1: x + 70, y1: y - 5, x2: x + 350, y2: y + 35 };
+                        coordenadasDetectadas.miercoles_horas = { x1: x + 360, y1: y - 5, x2: x + 420, y2: y + 35 };
                     }
                     if (texto === 'Donnerstag') {
                         coordenadasDetectadas.jueves_texto = { x1: x + 70, y1: y - 5, x2: x + 350, y2: y + 35 };
@@ -143,7 +143,7 @@ export function inicializarLectorYAnalizadorPdf(contenedorId) {
                     school_name: schoolName,
                     file_identifier: fileIdentifier,
                     pdf_filename: nombreArchivoOriginal || 'admin.pdf',
-                    coordinates_json: coordenadasDetectadas // Enviando el JSON con las coordenadas mapeadas
+                    coordinates_json: coordenadasDetectadas
                 })
             });
 
